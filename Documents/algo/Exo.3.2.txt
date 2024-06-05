@@ -1,0 +1,53 @@
+void setup(){
+ int [] tab= new int[10] ; 
+ initBoard(tab, 3);
+ //isAMine(tab, 2);
+ //println (isAMine(tab,initBoard (tab, 3)));
+ affichPos(tab);
+}
+boolean isAMine(int [] tab,int i){
+  boolean position;
+    if (tab[i]== 99){
+       position=true;
+          }else{
+       position=false;
+     }
+  return position;
+}
+
+int getMines(int[]tab, int i){
+  int nbBombes =0;
+        if (i+1 < tab.length && isAMine(tab, i+1)){
+              nbBombes++;
+       }
+         if (i-1 >= 0 && isAMine(tab, i-1)){
+              nbBombes++;
+       }
+   return nbBombes;
+}
+
+ void affichPos(int []tab){   
+    for (int i =0; i< tab.length;i++){
+      if(isAMine(tab, i)){
+         print("x");
+      }else{
+        print (getMines(tab,i));
+    }
+    println();
+  }    
+ }
+
+void initBoard (int[] tab, int nbMines) {
+  int value = 0;
+    /// Tant que j'ai des mines a poser
+  while (nbMines!=0) {
+    // Choisir case aleatoire
+    value=(int)random(tab.length);
+    // Si case contient 0 alors
+    if (tab[value]==0) {
+      //Poser mine
+      tab[value]=99;
+      nbMines--;
+    }
+  }
+}
