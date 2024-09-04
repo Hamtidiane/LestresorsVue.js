@@ -1,8 +1,11 @@
 <script>
+import City from '@/components/City.vue'
+
 export default {
   name: 'CitiesList',
+  components: { City },
   data() {
-    return{
+    return {
       cities: [
         {
           id: 1,
@@ -19,33 +22,27 @@ export default {
           updatedAt: new Date()
         }
       ]
-    };
+    }
   }
 }
 </script>
 
-
 <template>
-  <div class="CitiesList">
-    <h1>Météo-liste des villes</h1>
-
-
-      <ul>
-        <li v-for="(city, index) in cities" :key="index">
-          <h2>{{city.name}}</h2>
-          <p>id: {{ city.id }}</p>
-          <P>weather: {{city.weather}}</P>
-          <p>Température: {{ city.temperature }}°C</p>
-          <p>updatedAt: {{ city.updatedAt }}</p>
-
-        </li>
-      </ul>
-    </div>
-
+  <div>
+    <h2>Liste des Villes</h2>
+    <ul>
+      <li v-for="city in cities" :key="city.name">
+        <!-- Appel du composant City pour chaque ville -->
+        <City :name="city.name" :weather="city.weather" :temperature="city.temperature" :updatedAt="city.updatedAt" />
+      </li>
+    </ul>
+  </div>
 </template>
 
+
+
 <style>
-.CitiesList h1{
+.CitiesList h1 {
   display: flex;
 }
 h1 {

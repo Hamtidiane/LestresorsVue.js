@@ -21,23 +21,17 @@ export default {
 </script>
 
 <template>
-  <header>
 
-  </header>
-
-  <!-- <CitiesList />-->
   <div>
     <h1>Bienvenue dans l'application</h1>
 
-    <!-- Ajout d'un élément cliquable -->
     <ul>
       <li @click="onListClick">Cliquez ici pour une alerte</li>
+      <li><router-link to="/villes"  > meteo site officiel</router-link></li>
     </ul>
-    <ul>
-    <li><router-link to="/villes"  > meteo site officiel</router-link></li>
+
 <!-- <router-link to="/CHEMIN_ROUTE(nom au choix)" > pour passer d'une page à l'autre dans le même composant.-->
 
-    </ul>
     <button v-show="$route.path!=='/'" @click="$router.go(-1)">Back</button>
 
     <RouterView />
