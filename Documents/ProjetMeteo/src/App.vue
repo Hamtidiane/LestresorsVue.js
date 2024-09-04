@@ -1,20 +1,31 @@
 <script>
 import CitiesList from '@/views/CitiesList.vue'
+
 export default {
   name: 'App',
-  components: { CitiesList },
   methods: {
     onListClick() {
       // Affiche une alerte lorsque l'utilisateur clique sur l'élément
       alert('Vous avez cliqué sur la liste !')
+    },
+    isLoginPage(){
+      let path = window.location.pathname.split('/')[1]
+      if(path !== '/'){
+        return true
+      }
+      return false
     }
+
   }
 }
 </script>
 
 <template>
+  <header>
 
-  <CitiesList />
+  </header>
+
+  <!-- <CitiesList />-->
   <div>
     <h1>Bienvenue dans l'application</h1>
 
@@ -22,6 +33,15 @@ export default {
     <ul>
       <li @click="onListClick">Cliquez ici pour une alerte</li>
     </ul>
+    <ul>
+    <li><router-link to="/villes"  > meteo site officiel</router-link></li>
+<!-- <router-link to="/CHEMIN_ROUTE(nom au choix)" > pour passer d'une page à l'autre dans le même composant.-->
+
+    </ul>
+    <button v-show="$route.path!=='/'" @click="$router.go(-1)">Back</button>
+
+    <RouterView />
+    <!-- </router-view> affiche le contenu de la route correspondant au composant spécifié dans la déclaration.-->
   </div>
 
 </template>
