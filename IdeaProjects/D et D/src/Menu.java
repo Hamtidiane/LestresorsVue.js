@@ -2,12 +2,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Menu {
+    Scanner scanner;
 
 
-    public Menu() {
+    public Menu(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    public static Personnage creerPersonnage(Scanner scanner) {
+    public  Personnage creerPersonnage(Scanner scanner) {
         Personnage personnage = null;
         String type;
         String name;
@@ -22,37 +24,37 @@ public class Menu {
 
 
         if (type.equals("guerrier")) {
-            personnage = new Personnage(type, name);
-        } else if (type.equals("magicien")) {
-            personnage = new Personnage(type, name);
+            personnage = new Guerrier(name, type);
+        } else {
+            personnage = new Magicien(name ,type);
         }
 
-        System.out.println("Personnage créé : " + personnage.toString());
+        System.out.println("Personnage créé : " + personnage);
         return personnage;
     }
 
-    public static int lancerDe() {
+    public  int lancerDe() {
         Random rand = new Random();
         return rand.nextInt(6) + 1;
     }
 
     // Méthode principale pour lancer le jeu
-    public static void play() {
-        Scanner sc = new Scanner(System.in);
+    public void play() {
         boolean playGame = true;
         Personnage personnage = null;
+
 
         while (playGame) {
             System.out.println("Donjons et Dragons - Menu principal");
             System.out.println("1 - Jouer");
             System.out.println("2 - Quitter");
             System.out.print("Votre choix: ");
-            String choix = sc.nextLine();
+            String choix = scanner.nextLine();
 
             switch (choix) {
                 case "1":
                     if (personnage == null) {
-                        personnage = creerPersonnage(sc);
+                        personnage = creerPersonnage(scanner);
                     }
 
                     int[] plateau = new int[64];
@@ -66,7 +68,7 @@ public class Menu {
                     // System.out.println("Combat contre un ennemi : " + ennemi);
                     //int caseSurprise = random.nextInt(62) + 1;
                     //System.out.println("Vous avez une surprise: " + caseSurprise);
-                   // String event = plateau.get(position).toString();
+                    // String event = plateau.get(position).toString();
                     /*if (event.equals("bonus")) {
                         position = new RandomBonus(personnage, sc, position).invoke();
                     } else if (event.equals("ennemi")) {
@@ -95,56 +97,42 @@ public class Menu {
                             }
 
                             System.out.println("Appuyer sur Entrée pour continuer");
-                            sc.nextLine();
+                            scanner.nextLine();
                         }*/
-                        System.out.println("Plateau de 64 cases initialisé. Vous commencez à la case 0.");
+                    System.out.println("Plateau de 64 cases initialisé. Vous commencez à la case 0.");
 
-                        while (position < 63) {
-                            System.out.println("\nAppuyez sur Entrée pour lancer le dé...");
-                            sc.nextLine();
+                    while (position < 63) {
+                        System.out.println("\nAppuyez sur Entrée pour lancer le dé...");
+                        scanner.nextLine();
 
-                            int lancer = lancerDe();
-                            System.out.println("Vous avez lancé un " + lancer + " !");
-                            position += lancer;
+                        int lancer = lancerDe();
+                        System.out.println("Vous avez lancé un " + lancer + " !");
+                        position += lancer;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-                            if (position == casePerdante) {
-                                System.out.println("Oh non ! Vous êtes tombé sur la case " + casePerdante + " et vous avez perdu !");
-                                playGame = false;
-                                break;
-                            } else {
-                                System.out.println("Vous êtes maintenant à la case " + position);
-                            }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-                        }
-                        position = 63;
-                        System.out.println("Vous êtes arrivé à la dernière case du plateau ! Félicitations !");
-                        break;
-
-                        case "2":
+                        if (position == casePerdante) {
+                            System.out.println("Oh non ! Vous êtes tombé sur la case " + casePerdante + " et vous avez perdu !");
                             playGame = false;
-                            System.out.println("Merci d'avoir joué. À bientôt !");
                             break;
-
-                        default:
-                            System.out.println("Choix non valide, veuillez réessayer.");
+                        } else {
+                            System.out.println("Vous êtes maintenant à la case " + position);
+                        }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
                     }
+                    position = 63;
+                    System.out.println("Vous êtes arrivé à la dernière case du plateau ! Félicitations !");
+                    break;
+
+                case "2":
+                    playGame = false;
+                    System.out.println("Merci d'avoir joué. À bientôt !");
+                    break;
+
+                default:
+                    System.out.println("Choix non valide, veuillez réessayer.");
             }
-            sc.close();
         }
-
-
+        scanner.close();
     }
-    public int invoke() {
-        Bonus randomBonus = Bonus.random();
-        System.out.println("Vous êtes sur une case bonus !");
-        System.out.println("Vous obtenez " + randomBonus.getName());
-        System.out.println("Vous gagnez " + randomBonus.getPuissance() + " puissance " + randomBonus.getVie() + " points de vie");
-        player.setVie(player.getVie() + randomBonus.getVie());
-        player.setForce(player.getForce() + randomBonus.getPuissance());
-        System.out.println("Appuyer sur Entrée pour continuer");
 
-        sc.nextLine();
-        pos++;
-        return pos;
-    }
+
 }

@@ -5,9 +5,9 @@ public enum Ennemi {
 
     private final String name;
     private final int forceAttaque;
-    private final int niveauVie;
+    private  int niveauVie;
 
-    Ennemi(String name, int strong, int niveauVie){
+    Ennemi(String name,  int niveauVie, int forceAttaque) {
         this.name = name;
         this.forceAttaque = forceAttaque;
         this.niveauVie = niveauVie;
@@ -21,8 +21,11 @@ public enum Ennemi {
     public int getNiveauVie() {
         return niveauVie;
     }
+    public void setNiveauVie(int niveauVie) {
+        this.niveauVie = niveauVie;
+    }
 
-    public static Ennemi random() {
+    public  Ennemi random() {
         return values()[(int) (Math.random() * values().length)];
     }
 

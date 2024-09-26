@@ -1,12 +1,10 @@
-
-import java.util.Scanner;
-public class Personnage {
-    private String type;
-    private String name;
-    private Armes equipementOffensif;
-    private Boucliers equipementDefensif;
-    private int niveauVie;
-    private int forceAttaque;
+abstract class Personnage {
+    protected String type;
+    protected String name;
+    EquipementOffensif equipementOffensif;
+    EquipementDefensif equipementDefensif;
+    protected int niveauVie;
+    protected int forceAttaque;
 
     public Personnage() {
         this.type = "unknown";
@@ -18,23 +16,11 @@ public class Personnage {
         this.name = name;
     }
 
-    public Personnage(String type, String name) {
+    public Personnage(String name, String type, int niveauVie, int forceAttaque) {
         this.type = type;
         this.name = name;
-        if (type.equals("guerrier")) {
-            this.niveauVie = 10;
-            this.forceAttaque = 10;
-
-            this.equipementOffensif = new Armes("epée", 5,"armes" );
-            this.equipementDefensif = new Boucliers("defensif", 3,"boucliers");
-        } else if (type.equals("magicien")) {
-            this.niveauVie = 6;
-            this.forceAttaque = 15;
-            this.equipementOffensif = new Armes("epée", 5,"armes" );
-            this.equipementDefensif = new Boucliers("boule de feu ", 7,"boucliers");
-        } else {
-            throw new IllegalArgumentException("Type de personnage non reconnu.");
-        }
+        this.niveauVie = niveauVie;
+        this.forceAttaque = forceAttaque;
     }
 
     //GETTERS & SETTERS
@@ -69,7 +55,7 @@ public class Personnage {
 
     @Override
     public String toString() {
-        return "Personnage [Name=" + name + ", Type=" + type + ", Niveau de vie=" + niveauVie +
+        return "Personnage cvzcv[Name=" + name + ", Type=" + type + ", Niveau de vie=" + niveauVie +
                 ", Force d'attaque=" + forceAttaque +
                 ", Equipement offensif=" + equipementOffensif +
                 ", Equipement défensif=" + equipementDefensif + "]";
