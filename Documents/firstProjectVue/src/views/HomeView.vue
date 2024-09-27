@@ -6,7 +6,8 @@ import CitiesList from '@/views/CitiesList.vue'
 
 <template>
   <main>
-  <cities-list/>
+ <cities-list/>
+   <!--<HamadComp/>-->
     <TheWelcome />
   </main>
 </template>
