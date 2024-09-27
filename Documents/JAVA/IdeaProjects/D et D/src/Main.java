@@ -8,11 +8,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Menu menu = new Menu(scanner);
-        Plateau jeu = new Plateau();
 
         menu.play();
-        jeu.jouer();
-
 
 
     }
