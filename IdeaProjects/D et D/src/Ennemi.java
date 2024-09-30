@@ -1,11 +1,11 @@
-public enum Ennemi {
+public enum Ennemi  {
     sorcier("sorcier", 2, 9),
     gobelin("gobelin", 1, 6),
     dragon("dragon", 4, 15);
 
     private final String name;
-    private final int forceAttaque;
     private  int niveauVie;
+    private final int forceAttaque;
 
     Ennemi(String name,  int niveauVie, int forceAttaque) {
         this.name = name;
@@ -14,6 +14,9 @@ public enum Ennemi {
     }
     public String getName() {
         return name;
+    }
+    public void setName(String name) {
+
     }
     public int getForceAttaque() {
         return forceAttaque;
