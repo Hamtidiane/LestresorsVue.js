@@ -1,4 +1,11 @@
-abstract class Personnage {
+package fr.campus.dnd.personnages;
+
+import fr.campus.dnd.armes.Arme;
+import fr.campus.dnd.armes.EquipementOffensif;
+import fr.campus.dnd.boucliers.EquipementDefensif;
+import fr.campus.dnd.items.Potion;
+
+public abstract class Personnage {
     protected String type;
     protected String name;
     EquipementOffensif equipementOffensif;
@@ -22,8 +29,19 @@ abstract class Personnage {
         this.niveauVie = niveauVie;
         this.forceAttaque = forceAttaque;
     }
+    public void boirePotion(Potion potion) {
+        this.niveauVie += potion.getNiveauVie();
+        System.out.println("Vous avez récupéré " + potion.getNiveauVie() + " points de vie.");
+    }
 
-    //GETTERS & SETTERS
+    public void equiperArme(Arme arme) {
+        this.equipementOffensif = arme;
+        System.out.println("Vous avez équipé l'arme : " + arme.getName() + " avec " + arme.getStrong() + " dégâts.");
+    }
+    public void combattreEnnemi(Ennemi ennemi) {
+        System.out.println("Vous combattez : " + ennemi.getName() + " avec " + ennemi.getNiveauVie() + " points de vie.");
+    }
+        //GETTERS & SETTERS
 
     public String getType() {
         return type;
@@ -55,7 +73,7 @@ abstract class Personnage {
 
     @Override
     public String toString() {
-        return "Personnage cvzcv[Name=" + name + ", Type=" + type + ", Niveau de vie=" + niveauVie +
+        return "fr.campus.dnd.Personnage [Name=" + name + ", Type=" + type + ", Niveau de vie=" + niveauVie +
                 ", Force d'attaque=" + forceAttaque +
                 ", Equipement offensif=" + equipementOffensif +
                 ", Equipement défensif=" + equipementDefensif + "]";

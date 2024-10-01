@@ -1,3 +1,8 @@
+package fr.campus.dnd.personnages;
+
+import fr.campus.dnd.armes.EquipementOffensif;
+import fr.campus.dnd.boucliers.EquipementDefensif;
+
 public class Guerrier extends Personnage {
 
     String name;

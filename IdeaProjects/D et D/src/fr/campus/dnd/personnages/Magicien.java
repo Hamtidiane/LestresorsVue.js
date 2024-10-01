@@ -1,3 +1,8 @@
+package fr.campus.dnd.personnages;
+
+import fr.campus.dnd.armes.EquipementOffensif;
+import fr.campus.dnd.boucliers.EquipementDefensif;
+
 public class Magicien extends Personnage {
     String name;
     String type;
@@ -11,7 +16,7 @@ public class Magicien extends Personnage {
         this.niveauVie = 6;
         this.forceAttaque = 15;
         this.equipementOffensif = new EquipementOffensif("boule de feu ", 7,"armes" );
-        this.equipementDefensif = new EquipementDefensif("philtre", 3,"boucliers");
+        this.equipementDefensif = new EquipementDefensif("philtre", 3,"philtre");
     }
 
     @Override

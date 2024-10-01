@@ -1,3 +1,5 @@
+package fr.campus.dnd.items;
+
 public class Potion {
     private String name;
     private int niveauVie;
@@ -19,6 +21,6 @@ public class Potion {
 
     }
     public String toString(){
-        return "Potion [vous avez une potion " +name+ ",niveau de vie : " + niveauVie+"]" ;
+        return "fr.campus.dnd.items.Potion [vous avez une potion " +name+ ",niveau de vie : " + niveauVie+"]" ;
     }
 }

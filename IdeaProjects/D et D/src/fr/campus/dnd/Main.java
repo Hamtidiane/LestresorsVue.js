@@ -1,4 +1,4 @@
-
+package fr.campus.dnd;
 
 import java.util.Scanner;
 

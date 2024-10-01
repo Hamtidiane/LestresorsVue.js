@@ -1,10 +1,13 @@
-public class Bouclier extends EquipementDefensif{
+package fr.campus.dnd;
+
+import fr.campus.dnd.boucliers.EquipementDefensif;
+
+public class Philtre extends EquipementDefensif {
     private String type;
     private int defensiveStrong;
     private String name;
 
-
-    public Bouclier(String type, int defensiveStrong, String name) {
+    public Philtre(String type, int defensiveStrong, String name) {
         super(type, defensiveStrong, name);
         this.type = type;
         this.defensiveStrong = defensiveStrong;
@@ -30,9 +33,7 @@ public class Bouclier extends EquipementDefensif{
     public void setName(String name) {
         this.name = name;
     }
-
-    @Override
-    public String toString() {
-            return super.toString();
+    public String toString(){
+        return super.toString();
     }
 }

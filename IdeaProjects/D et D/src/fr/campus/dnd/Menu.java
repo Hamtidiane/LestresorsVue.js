@@ -1,5 +1,9 @@
+package fr.campus.dnd;
 
-import java.util.Random;
+import fr.campus.dnd.personnages.Guerrier;
+import fr.campus.dnd.personnages.Magicien;
+import fr.campus.dnd.personnages.Personnage;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -13,7 +17,7 @@ public class Menu {
     }
 
    public String choixMenu(){
-       System.out.println("Donjons et Dragons - Menu principal");
+       System.out.println("Donjons et Dragons - fr.campus.dnd.Menu principal");
        System.out.println("1 - Jouer");
        System.out.println("2 - Quitter");
        System.out.print("Votre choix: ");
@@ -22,7 +26,7 @@ public class Menu {
 
        if(choixMenu.equals("1")){
 
-       System.out.println(weaponFactory());
+       //System.out.println(weaponFactory());
            playGame = true;
            play();
            System.out.println(playGame);
@@ -34,16 +38,7 @@ public class Menu {
        return choixMenu;
    }
 
-    public Arme weaponFactory(){
-        Random rand = new Random();
-        ArmeEpee createEpee = new ArmeEpee("Epée", 5, "excalibur");
-        ArmeMassue createMassue = new ArmeMassue("Massue", 3, "togum");
-        Arme [] weaponsCloset = {createEpee, createMassue};
 
-        int weaponsIndex = rand.nextInt(weaponsCloset.length);
-
-        return weaponsCloset[weaponsIndex];
-    }
 
     public Personnage creerPersonnage(Scanner scanner) {
         Personnage personnage = null;
@@ -65,20 +60,21 @@ public class Menu {
             personnage = new Magicien(name, type);
         }
 
-        System.out.println("Personnage créé : " + personnage);
+        System.out.println("fr.campus.dnd.Personnage créé : " + personnage);
         return personnage;
     }
 
 
     public void play() {
 
-        Personnage personnage = null;
+        Personnage nouveauPersonnage = null;
 
 
         while (playGame) {
-                if (personnage == null) {
-                    personnage = creerPersonnage(scanner);
+                if (nouveauPersonnage == null) {
+                    nouveauPersonnage = creerPersonnage(scanner);
                     Game game = new Game();
+                    game.setJoueur(nouveauPersonnage);
                     game. jouer_un_tour();
                 }
             }
