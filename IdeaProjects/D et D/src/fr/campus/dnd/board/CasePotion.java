@@ -19,7 +19,7 @@ public class CasePotion implements Case {
         } else {
             this.potion = new PotionStandard();
         }
-        this.name = "fr.campus.dnd.board.Case fr.campus.dnd.items.Potion";
+        this.name = "Potion";
     }
 
     // Getter pour le nom

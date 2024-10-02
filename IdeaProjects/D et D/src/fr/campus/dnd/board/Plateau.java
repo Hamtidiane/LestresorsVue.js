@@ -45,7 +45,7 @@ public class Plateau {
 
     public void afficherPlateau() {
         for (int i = 0; i < cases.size(); i++) {
-            System.out.println("fr.campus.dnd.board.Case " + (i + 1) + ": " + cases.get(i).getDescription());
+            System.out.println("Case " + (i + 1) + ": " + cases.get(i).getDescription());
         }
     }
 }

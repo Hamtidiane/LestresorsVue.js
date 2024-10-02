@@ -10,6 +10,12 @@ public class Guerrier extends Personnage {
     int niveauVie;
     int forceAttaque;
 
+    public Guerrier() {
+        this.equipementOffensif = new EquipementOffensif(" epée", 5," armes" );
+        this.equipementDefensif = new EquipementDefensif(" defensif", 3," boucliers");
+
+    }
+
     public Guerrier( String name, String type) {
         super(name, "guerrier", 10, 10);
         this.name = name;

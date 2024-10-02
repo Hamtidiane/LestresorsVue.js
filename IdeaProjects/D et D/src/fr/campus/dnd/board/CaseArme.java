@@ -21,7 +21,7 @@ public class CaseArme implements Case {
         } else {
             this.arme = new ArmeMassue("equipementOffensif", 3, "Massue");
         }
-        this.name = "fr.campus.dnd.board.Case fr.campus.dnd.Arme";
+        this.name = "Arme";
     }
 
     // Getter pour le nom

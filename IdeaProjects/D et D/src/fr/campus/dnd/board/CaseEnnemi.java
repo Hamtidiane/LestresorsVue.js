@@ -28,7 +28,7 @@ public class CaseEnnemi implements Case {
                 this.ennemi = new EnnemiGobelin();
                 break;
         }
-        this.name = "fr.campus.dnd.board.Case fr.campus.dnd.Ennemi";
+        this.name = "Ennemi";
     }
 
     // Getter pour le nom

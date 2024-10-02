@@ -20,7 +20,7 @@ public class Game {
     public Game() {
         plateau = new Plateau();
         plateau.afficherPlateau();
-        System.out.println("fr.campus.dnd.board.Plateau de 64 cases initialisé. Vous commencez à la case 0.");
+        System.out.println("Plateau de 64 cases initialisé. Vous commencez à la case 0.");
     }
 
 

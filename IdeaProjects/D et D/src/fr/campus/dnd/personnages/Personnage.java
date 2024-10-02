@@ -5,13 +5,14 @@ import fr.campus.dnd.armes.EquipementOffensif;
 import fr.campus.dnd.boucliers.EquipementDefensif;
 import fr.campus.dnd.items.Potion;
 
-public abstract class Personnage {
+public class Personnage {
     protected String type;
     protected String name;
     EquipementOffensif equipementOffensif;
     EquipementDefensif equipementDefensif;
     protected int niveauVie;
     protected int forceAttaque;
+    private int id;
 
     public Personnage() {
         this.type = "unknown";
@@ -28,7 +29,26 @@ public abstract class Personnage {
         this.name = name;
         this.niveauVie = niveauVie;
         this.forceAttaque = forceAttaque;
+
+
     }
+
+    public EquipementOffensif getEquipementOffensif() {
+        return equipementOffensif;
+    }
+
+    public void setEquipementOffensif(EquipementOffensif equipementOffensif) {
+        this.equipementOffensif = equipementOffensif;
+    }
+
+    public EquipementDefensif getEquipementDefensif() {
+        return equipementDefensif;
+    }
+
+    public void setEquipementDefensif(EquipementDefensif equipementDefensif) {
+        this.equipementDefensif = equipementDefensif;
+    }
+
     public void boirePotion(Potion potion) {
         this.niveauVie += potion.getNiveauVie();
         System.out.println("Vous avez récupéré " + potion.getNiveauVie() + " points de vie.");
@@ -73,15 +93,23 @@ public abstract class Personnage {
 
     @Override
     public String toString() {
-        return "fr.campus.dnd.Personnage [Name=" + name + ", Type=" + type + ", Niveau de vie=" + niveauVie +
+        return "Personnage [Name=" + name + ", Type=" + type + ", Niveau de vie=" + niveauVie +
                 ", Force d'attaque=" + forceAttaque +
                 ", Equipement offensif=" + equipementOffensif +
                 ", Equipement défensif=" + equipementDefensif + "]";
     }
+
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 }
 
 
 
 
-
+//https://github.com/antoineGranjon/Donjon-et-dragons/blob/master/src/main/java/dungeonanddragons/main.java
 

@@ -9,6 +9,12 @@ public class Magicien extends Personnage {
     int niveauVie;
     int forceAttaque;
 
+    public Magicien() {
+
+        this.equipementOffensif = new EquipementOffensif("boule de feu ", 7,"armes" );
+        this.equipementDefensif = new EquipementDefensif("philtre", 3,"philtre");
+    }
+
     public Magicien(String name, String type){
         super(name, "magicien", 6, 15 );
         this.name = name;
