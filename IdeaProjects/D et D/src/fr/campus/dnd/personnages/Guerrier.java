@@ -17,11 +17,11 @@ public class Guerrier extends Personnage {
     }
 
     public Guerrier( String name, String type) {
-        super(name, "guerrier", 10, 10);
+        super(name, "guerrier", 5, 6);
         this.name = name;
         this.type = type;
-        this.niveauVie = 10;
-        this.forceAttaque = 10;
+        this.niveauVie = 5;
+        this.forceAttaque = 6 ;
         this.equipementOffensif = new EquipementOffensif(" epée", 5," armes" );
         this.equipementDefensif = new EquipementDefensif(" defensif", 3," boucliers");
     }

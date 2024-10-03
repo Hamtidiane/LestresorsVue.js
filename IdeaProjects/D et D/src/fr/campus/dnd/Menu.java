@@ -38,6 +38,32 @@ public class Menu {
         return choixMenu;
     }
 
+    public Personnage choisirOuCreerPersonnage() throws SQLException {
+        System.out.println("Souhaitez-vous selectionner ou créer un joueur.");
+        System.out.println("1 - Créer un joueur");
+        System.out.println("2 - Selectionner un joueur");
+        String choixJoueur = scanner.nextLine();
+        switch (choixJoueur) {
+            case "1":
+                 return creerPersonnage(scanner);
+            case "2":
+                return afficherEtChoisirPersonnages();
+            default:
+                System.out.println("Choix invalide.");
+                return null;
+        }
+    }
+
+    private Personnage afficherEtChoisirPersonnages() throws SQLException {
+        PersonnageManager personnageManager = new PersonnageManager();
+
+        System.out.println("Liste des personnages disponibles :");
+        personnageManager.getHeroes();
+        Personnage selectedperso = personnageManager.getHeroFromId();
+        return selectedperso;
+    }
+
+
     public Personnage creerPersonnage(Scanner scanner) {
         Personnage personnage = null;
         String type;
@@ -53,6 +79,7 @@ public class Menu {
 
         if (type.equals("guerrier")) {
             personnage = new Guerrier(name, type);
+            System.out.println();
         } else {
             personnage = new Magicien(name, type);
         }
@@ -62,39 +89,30 @@ public class Menu {
     }
 
     public void play() throws SQLException {
-        Personnage nouveauPersonnage = null;
+
 
         while (playGame) {
-            if (nouveauPersonnage == null) {
+           /* choixJoueur();
+            if
+            (nouveauPersonnage == null) {
                 nouveauPersonnage = creerPersonnage(scanner);
 
                 // Enregistrer le personnage dans la base de données
-                PersonnageManager.ajouterPersonnage(nouveauPersonnage);
+                personnageManager.createHero(nouveauPersonnage);
 
                 Game game = new Game();
                 game.setJoueur(nouveauPersonnage);
                 game.jouer_un_tour();
-            }
-
-            // Une fois que le joueur a commencé à jouer, il peut consulter les personnages
-            System.out.println("Voulez-vous consulter la liste des personnages ? (oui/non)");
-            String choix = scanner.nextLine();
-            if (choix.equalsIgnoreCase("oui")) {
-                afficherPersonnages();
-            }
-
-            System.out.println("Continuer à jouer ? (oui/non)");
-            String continuer = scanner.nextLine();
-            if (!continuer.equalsIgnoreCase("oui")) {
-                playGame = false;
-                System.out.println("Merci d'avoir joué.");
-            }
+            }*/
+            Personnage personnageSelectionne =  choisirOuCreerPersonnage();
+            Game game = new Game();
+            game.setJoueur(personnageSelectionne);
+            game.jouer_un_tour();
         }
-    }
 
-    // Méthode pour afficher les personnages depuis la base de données
-    public void afficherPersonnages() throws SQLException {
-        System.out.println("Liste des personnages disponibles :");
-        PersonnageManager.getHeroes();  // Cette méthode affichera la liste des personnages
     }
 }
+
+// Méthode pour afficher les personnages depuis la base de données
+
+

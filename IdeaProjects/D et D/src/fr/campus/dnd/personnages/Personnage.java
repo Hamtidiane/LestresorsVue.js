@@ -106,6 +106,9 @@ public class Personnage {
     }
 
 
+    public int getId() {
+        return id;
+    }
 }
 
 
