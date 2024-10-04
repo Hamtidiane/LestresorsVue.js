@@ -46,7 +46,7 @@ public class CaseEnnemi implements Case {
     public void appliquerEvenement(Personnage personnage) {
         System.out.println("Vous rencontrez un ennemi : " + ennemi.getName());
         personnage.combattreEnnemi(ennemi); // Le personnage engage le combat contre l'ennemi
-    }// combattre ennemi est la methode a appliquer dans fr.campus.dnd.Personnage
+    }// combattre ennemi est la methode a appliquer dans Personnage
 
     // Description de la case
     @Override

@@ -14,6 +14,7 @@ public class Personnage {
     protected int forceAttaque;
     private int id;
 
+
     public Personnage() {
         this.type = "unknown";
         this.name = "unknown";
@@ -52,6 +53,7 @@ public class Personnage {
     public void boirePotion(Potion potion) {
         this.niveauVie += potion.getNiveauVie();
         System.out.println("Vous avez récupéré " + potion.getNiveauVie() + " points de vie.");
+        System.out.println("vous avez maintenant "+niveauVie+" points de vie.");
     }
 
     public void equiperArme(Arme arme) {
@@ -60,8 +62,34 @@ public class Personnage {
     }
     public void combattreEnnemi(Ennemi ennemi) {
         System.out.println("Vous combattez : " + ennemi.getName() + " avec " + ennemi.getNiveauVie() + " points de vie.");
+
+        this.attaque(ennemi);
+        while (ennemi.getNiveauVie() > 0) {
+            System.out.println("l'ennemi est toujours en vie, avec " + ennemi.getNiveauVie() + " points de vie.");
+            ennemi.attaque(this);
+            this.attaque(ennemi);
+
+            if(ennemi.getNiveauVie() <= 0) {
+                System.out.println("l'ennemi est mort");
+                break;
+            }
+        }
     }
-        //GETTERS & SETTERS
+    public void attaque(Ennemi ennemi) {
+        int totaleAttaque = this.getTotaleAttaque();
+        System.out.println("vous attaquez l'ennemi");
+        int newNiveauDeVie = ennemi.getNiveauVie() - totaleAttaque;
+        ennemi.setNiveauVie(newNiveauDeVie);
+    }
+    public int getTotaleAttaque(){
+        int forceDeLarme = this.getEquipementOffensif().getStrong();
+        int forAttaquePersonnage = this.getForceAttaque();
+        return forceDeLarme + forAttaquePersonnage;
+    }
+
+
+
+    //GETTERS & SETTERS
 
     public String getType() {
         return type;
@@ -77,13 +105,6 @@ public class Personnage {
         this.name = name;
     }
 
-    public int getniveauVie() {
-        return niveauVie;
-    }
-    public void setniveauVie(int niveauVie) {
-        this.niveauVie = niveauVie;
-    }
-
     public int getForceAttaque() {
         return forceAttaque;
     }
@@ -91,6 +112,13 @@ public class Personnage {
         this.forceAttaque = forceAttaque;
     }
 
+    public int getNiveauVie() {
+        return niveauVie;
+    }
+
+    public void setNiveauVie(int niveauVie) {
+        this.niveauVie = niveauVie;
+    }
     @Override
     public String toString() {
         return "Personnage [Name=" + name + ", Type=" + type + ", Niveau de vie=" + niveauVie +

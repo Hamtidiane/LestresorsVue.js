@@ -27,13 +27,13 @@ public class Guerrier extends Personnage {
     }
 
     @Override
-    public int getniveauVie() {
-        return super.getniveauVie();
+    public int getNiveauVie() {
+        return super.getNiveauVie();
     }
 
     @Override
-    public void setniveauVie(int niveauVie) {
-        super.setniveauVie(niveauVie);
+    public void setNiveauVie(int niveauVie) {
+        super.setNiveauVie(niveauVie);
     }
 
     @Override

@@ -20,7 +20,8 @@ public class Potion {
     public void setNiveauVie(int niveauVie){
 
     }
+
     public String toString(){
-        return "fr.campus.dnd.items.Potion [vous avez une potion " +name+ ",niveau de vie : " + niveauVie+"]" ;
+        return "Potion [vous avez une potion " +name+ ",niveau de vie : " + niveauVie+"]" ;
     }
 }

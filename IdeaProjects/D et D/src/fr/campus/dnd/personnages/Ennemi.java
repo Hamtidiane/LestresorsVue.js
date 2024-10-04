@@ -17,6 +17,15 @@ public class Ennemi  {
     public void setName(String name) {
 
     }
+    public void attaque(Personnage personnage) {
+        int totaleAttaque = this.getForceAttaque();
+        System.out.println("l'ennemi vous attaque avec une force d'attaque :"+totaleAttaque);
+        int newNiveauDeVie = personnage.getNiveauVie() - totaleAttaque;
+        personnage.setNiveauVie(newNiveauDeVie);
+        System.out.println("vous avez:"+ newNiveauDeVie+"niveau de vie");
+    }
+
+
     public int getForceAttaque() {
         return forceAttaque;
     }

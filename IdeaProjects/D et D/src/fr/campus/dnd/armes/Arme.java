@@ -1,9 +1,12 @@
 package fr.campus.dnd.armes;
 
 public class Arme extends EquipementOffensif {
+
     private String type;
     private int strong;
     private String name;
+
+
 
     public Arme(String type, int strong, String name) {
         super(type, strong, name);
@@ -11,6 +14,7 @@ public class Arme extends EquipementOffensif {
         this.strong = strong;
         this.name = name;
     }
+
 
     public String getType() {
         return type;

@@ -33,9 +33,10 @@ public class PersonnageManager {
                 personnage.setId(resultSet.getInt("id"));
                 personnage.setName(resultSet.getString("name"));
                 personnage.setType(resultSet.getString("type"));
-                personnage.setniveauVie(resultSet.getInt("niveauVie"));
+                personnage.setNiveauVie(resultSet.getInt("niveauVie"));
                 personnage.setForceAttaque(resultSet.getInt("forceAttaque"));
-                System.out.println("ID: " + personnage.getId() + " - Nom: " + personnage.getName() + " - Type: " + personnage.getType());
+                System.out.println("ID: " + personnage.getId() + " - Nom: " + personnage.getName() + " - Type: " + personnage.getType() + " - Points de vie: " + personnage.getNiveauVie()+ " - Force: " + personnage.getForceAttaque()+ " -" +
+                        "Arme: " + personnage.getEquipementOffensif() );
             }
 
 
@@ -70,7 +71,7 @@ public class PersonnageManager {
                     personnageSelectionne.setId(heroResult.getInt("id"));
                     personnageSelectionne.setName(heroResult.getString("name"));
                     personnageSelectionne.setType(heroResult.getString("type"));
-                    personnageSelectionne.setniveauVie(heroResult.getInt("niveauVie"));
+                    personnageSelectionne.setNiveauVie(heroResult.getInt("niveauVie"));
                     personnageSelectionne.setForceAttaque(heroResult.getInt("forceAttaque"));
                     System.out.println("Vous avez sélectionné : " + personnageSelectionne.getName());
                     return personnageSelectionne;
@@ -100,7 +101,7 @@ public class PersonnageManager {
             // Remplissage des paramètres de la requête préparée
             preparedStatement.setString(1, nouveauPersonnage.getName());
             preparedStatement.setString(2, nouveauPersonnage.getType());
-            preparedStatement.setInt(3, nouveauPersonnage.getniveauVie());
+            preparedStatement.setInt(3, nouveauPersonnage.getNiveauVie());
             preparedStatement.setInt(4, nouveauPersonnage.getForceAttaque());
             preparedStatement.setString(5, nouveauPersonnage.getEquipementOffensif().toString());
             preparedStatement.setString(6, nouveauPersonnage.getEquipementDefensif().toString());

@@ -44,16 +44,17 @@ public class Game {
                 }
             } catch (PersonnageHorsPlateauException e) {
                 System.out.println(e.getMessage());
-                positionJoueur = 63; // On remet le joueur à la dernière case
+                positionJoueur -= lancer; // On remet le joueur à la dernière case
                 System.out.println("Vous êtes maintenant à la case " + positionJoueur);
             }
         }
 
         if (positionJoueur == 63) {
+            playGame = false;
             System.out.println("Vous êtes arrivé à la dernière case du plateau ! Félicitations !");
         }
 
-        scanner.close();
+        //scanner.close();
     }
 
     public void verifierCase(){
@@ -73,4 +74,9 @@ public class Game {
     public void setJoueur(Personnage joueur) {
         this.joueur = joueur;
     }
+
+
+
 }
+
+

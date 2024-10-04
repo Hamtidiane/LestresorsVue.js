@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Menu {
     Scanner scanner;
     boolean playGame = false;
+    PersonnageManager database = new PersonnageManager();
 
     public Menu(Scanner scanner) {
         this.scanner = scanner;
@@ -84,26 +85,17 @@ public class Menu {
             personnage = new Magicien(name, type);
         }
 
+        database.createHero(personnage);
         System.out.println("Personnage créé : " + personnage);
         return personnage;
+
     }
 
     public void play() throws SQLException {
 
 
         while (playGame) {
-           /* choixJoueur();
-            if
-            (nouveauPersonnage == null) {
-                nouveauPersonnage = creerPersonnage(scanner);
 
-                // Enregistrer le personnage dans la base de données
-                personnageManager.createHero(nouveauPersonnage);
-
-                Game game = new Game();
-                game.setJoueur(nouveauPersonnage);
-                game.jouer_un_tour();
-            }*/
             Personnage personnageSelectionne =  choisirOuCreerPersonnage();
             Game game = new Game();
             game.setJoueur(personnageSelectionne);

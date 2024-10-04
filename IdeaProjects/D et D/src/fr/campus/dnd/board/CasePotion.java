@@ -37,6 +37,7 @@ public class CasePotion implements Case {
     public void appliquerEvenement(Personnage personnage) {
         System.out.println("Vous avez trouvé une potion : " + potion.getName());
         personnage.boirePotion(potion);
+
     }
 
     // Description de la case
