@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"fr.campus.dnd"},{"l":"fr.campus.dnd.armes"},{"l":"fr.campus.dnd.board"},{"l":"fr.campus.dnd.boucliers"},{"l":"fr.campus.dnd.DataBase"},{"l":"fr.campus.dnd.exceptions"},{"l":"fr.campus.dnd.items"},{"l":"fr.campus.dnd.personnages"}];updateSearchResults();

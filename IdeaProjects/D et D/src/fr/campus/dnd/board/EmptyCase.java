@@ -19,8 +19,9 @@ public class EmptyCase implements Case {
 
 
     @Override
-    public void appliquerEvenement(Personnage personnage) {
+    public boolean appliquerEvenement(Personnage personnage) {
 
+        return true;
     }
 
     @Override

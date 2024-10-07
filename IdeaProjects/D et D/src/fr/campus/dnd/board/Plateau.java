@@ -13,6 +13,7 @@ public class Plateau {
     }
 
     private void genererCases() {
+         int nbreTirrageRestant = 4;
 
         Random random = new Random();
         for (int i = 0; i < 64; i++) {
@@ -26,7 +27,13 @@ public class Plateau {
                     caseActuelle = new CaseArme();
                     break;
                 case 2:
-                    caseActuelle = new CasePotion();
+                    if(nbreTirrageRestant > 0){
+                        caseActuelle = new CasePotion();
+                        nbreTirrageRestant --;
+                    }else {
+                        caseActuelle = new EmptyCase("Case vide");
+
+                    }
                     break;
                 default:
                     caseActuelle = new CaseEnnemi();

@@ -5,7 +5,7 @@ public class EnnemiGobelin extends Ennemi {
 
 
     public EnnemiGobelin(){
-        super("Gobelin", 6, 1);
+        super("Gobelin", 10, 7);
 
     }
 

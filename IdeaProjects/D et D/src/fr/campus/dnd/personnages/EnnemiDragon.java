@@ -4,7 +4,7 @@ public class EnnemiDragon extends Ennemi {
 
 
    public EnnemiDragon() {
-       super("Dragon", 15, 4);
+       super("Dragon", 15, 10);
 
     }
 

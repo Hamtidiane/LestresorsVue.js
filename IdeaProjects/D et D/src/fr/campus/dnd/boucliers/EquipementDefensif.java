@@ -34,7 +34,7 @@ public class EquipementDefensif {
         this.name = name;
     }
     public String toString() {
-    return " fr.campus.dnd.Bouclier " + name + " - Puissance: " + defensiveStrong;
+    return " Bouclier " + name + " - Puissance: " + defensiveStrong;
     }
 
 }

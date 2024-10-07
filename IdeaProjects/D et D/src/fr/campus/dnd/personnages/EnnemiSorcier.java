@@ -5,7 +5,7 @@ public class EnnemiSorcier extends Ennemi {
 
 
    public EnnemiSorcier() {
-        super("Sorcier", 9, 2);
+        super("Sorcier", 11, 8);
 
  }
 

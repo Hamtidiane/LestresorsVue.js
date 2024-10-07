@@ -34,10 +34,11 @@ public class CasePotion implements Case {
 
 
     @Override
-    public void appliquerEvenement(Personnage personnage) {
+    public boolean appliquerEvenement(Personnage personnage) {
         System.out.println("Vous avez trouvé une potion : " + potion.getName());
         personnage.boirePotion(potion);
 
+        return true;
     }
 
     // Description de la case

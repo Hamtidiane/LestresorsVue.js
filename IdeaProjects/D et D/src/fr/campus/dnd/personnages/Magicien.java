@@ -4,10 +4,7 @@ import fr.campus.dnd.armes.EquipementOffensif;
 import fr.campus.dnd.boucliers.EquipementDefensif;
 
 public class Magicien extends Personnage {
-    String name;
-    String type;
-    int niveauVie;
-    int forceAttaque;
+
 
     public Magicien() {
 
@@ -25,30 +22,5 @@ public class Magicien extends Personnage {
         this.equipementDefensif = new EquipementDefensif("philtre", 3,"philtre");
     }
 
-    @Override
-    public int getNiveauVie() {
-        return super.getNiveauVie();
-    }
-
-    @Override
-    public void setNiveauVie(int niveauVie) {
-        super.setNiveauVie(niveauVie);
-    }
-
-
-    @Override
-    public int getForceAttaque() {
-        return super.getForceAttaque();
-    }
-
-    @Override
-    public void setForceAttaque(int forceAttaque) {
-        this.forceAttaque = forceAttaque;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }
 

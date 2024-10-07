@@ -5,6 +5,9 @@ import fr.campus.dnd.armes.EquipementOffensif;
 import fr.campus.dnd.boucliers.EquipementDefensif;
 import fr.campus.dnd.items.Potion;
 
+/**
+ *
+ */
 public class Personnage {
     protected String type;
     protected String name;
@@ -57,16 +60,27 @@ public class Personnage {
     }
 
     public void equiperArme(Arme arme) {
+        //if(this.equipementOffensif.getStrong() <) {}
         this.equipementOffensif = arme;
         System.out.println("Vous avez équipé l'arme : " + arme.getName() + " avec " + arme.getStrong() + " dégâts.");
     }
-    public void combattreEnnemi(Ennemi ennemi) {
+    public boolean combattreEnnemi(Ennemi ennemi) {
         System.out.println("Vous combattez : " + ennemi.getName() + " avec " + ennemi.getNiveauVie() + " points de vie.");
-
+        boolean continueGame=true;
         this.attaque(ennemi);
+        if(ennemi.getNiveauVie() <= 0) {
+
+            System.out.println("l'ennemi est mort");
+        }
+
         while (ennemi.getNiveauVie() > 0) {
             System.out.println("l'ennemi est toujours en vie, avec " + ennemi.getNiveauVie() + " points de vie.");
             ennemi.attaque(this);
+            if (this.getNiveauVie() <= 0) {
+            System.out.println("Vous avez perdu la partie.");
+                continueGame=false;
+              break;
+            }
             this.attaque(ennemi);
 
             if(ennemi.getNiveauVie() <= 0) {
@@ -74,13 +88,25 @@ public class Personnage {
                 break;
             }
         }
+        return continueGame;
     }
+
+    /**
+     * Le personnage actuel attaque une ennemi
+     *
+     * @param ennemi l'ennemi sur la case actuelle
+     */
     public void attaque(Ennemi ennemi) {
         int totaleAttaque = this.getTotaleAttaque();
         System.out.println("vous attaquez l'ennemi");
         int newNiveauDeVie = ennemi.getNiveauVie() - totaleAttaque;
         ennemi.setNiveauVie(newNiveauDeVie);
     }
+
+    /**
+     *
+     * @return nombre de points d'attaque totaux
+     */
     public int getTotaleAttaque(){
         int forceDeLarme = this.getEquipementOffensif().getStrong();
         int forAttaquePersonnage = this.getForceAttaque();
@@ -121,6 +147,7 @@ public class Personnage {
     }
     @Override
     public String toString() {
+
         return "Personnage [Name=" + name + ", Type=" + type + ", Niveau de vie=" + niveauVie +
                 ", Force d'attaque=" + forceAttaque +
                 ", Equipement offensif=" + equipementOffensif +

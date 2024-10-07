@@ -13,6 +13,15 @@ public class Game {
     private Random random = new Random();
     private Plateau plateau =null;
     private int positionJoueur = 0;
+
+    public boolean isPlayGame() {
+        return playGame;
+    }
+
+    public void setPlayGame(boolean playGame) {
+        this.playGame = playGame;
+    }
+
     private boolean playGame = true;
     private Personnage joueur;
 
@@ -60,7 +69,9 @@ public class Game {
     public void verifierCase(){
         //Stocker la case actuelle
         Case caseActuelle = plateau.getCase(positionJoueur);
-        caseActuelle.appliquerEvenement(joueur);
+        boolean continuePartie= caseActuelle.appliquerEvenement(joueur);
+        playGame = continuePartie;
+       // return continuePartie;
         //faire l'action coorespondante
 
     }

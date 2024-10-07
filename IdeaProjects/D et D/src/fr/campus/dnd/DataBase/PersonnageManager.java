@@ -35,7 +35,7 @@ public class PersonnageManager {
                 personnage.setType(resultSet.getString("type"));
                 personnage.setNiveauVie(resultSet.getInt("niveauVie"));
                 personnage.setForceAttaque(resultSet.getInt("forceAttaque"));
-                System.out.println("ID: " + personnage.getId() + " - Nom: " + personnage.getName() + " - Type: " + personnage.getType() + " - Points de vie: " + personnage.getNiveauVie()+ " - Force: " + personnage.getForceAttaque()+ " -" +
+                System.out.println("ID: " + personnage.getId() + " - Nom: " + personnage.getName() + " -  Type: " + personnage.getType() + " - Points de vie: " + personnage.getNiveauVie()+ " -  Force: " + personnage.getForceAttaque()+ " - " +
                         "Arme: " + personnage.getEquipementOffensif() );
             }
 
